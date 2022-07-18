@@ -32,7 +32,7 @@ RUN mkdir -p /var/www/static && cp /usr/lib/python3.*/site-packages/codemeta/res
 #Install webserver and build dependencies
 #Install codemeta-server, this also pulls in rdflib-endpoint and uvicorn (for which we need the build dependencies)
 #remove build dependencies
-RUN apt-get install -qqy --no-install-recommends nginx ca-certificates runit cron rsync python3-dotenv apache2-utils gcc ; \
+RUN apt-get install -qqy --no-install-recommends psmisc nginx ca-certificates runit cron rsync python3-dotenv apache2-utils gcc ; \
 pip install --upgrade pip; pip install codemeta-server flask waitress ; \
 apt-get remove -qqy gcc libc-dev make python3-dev ; \ 
 apt-get clean -qqy ; apt-get autoremove --yes ; rm -rf /var/lib/{apt,dpkg,cache,log}/
